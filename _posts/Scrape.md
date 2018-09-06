@@ -1,0 +1,40 @@
+---
+layout: post
+title: Indeed Job Scrape
+---
+
+# import scrapy
+# from scrapy import Request
+
+
+# class JobsSpider(scrapy.Spider):
+#     name = 'jobs'
+#     allowed_domains = ['indeed.com']
+#     start_urls = ['https://au.indeed.com/jobs?q=data+analyst&l=sydney&radius=15',
+#                     'https://au.indeed.com/jobs?q=data+engineer&l=sydney&radius=15',
+#                     'https://au.indeed.com/jobs?q=data+scientist&l=sydney'
+#     ]
+#     BASE_URL = 'https://au.indeed.com/'
+
+#     def parse(self, response):
+#         links = response.xpath('//a[@data-tn-element="jobTitle"]/@href').extract()
+
+#         for link in links:
+#             absolute_url = self.BASE_URL + link
+#             yield scrapy.Request(absolute_url, callback=self.parse_page)
+
+#         relative_next_url = response.xpath('//*[@class="pagination"]/a/@href')[-1].extract()
+#         absolute_next_url = self.BASE_URL + relative_next_url
+
+#         yield Request(absolute_next_url, callback=self.parse)
+
+
+#     def parse_page(self, response):
+#         title = response.xpath('//b[@class="jobtitle"]/font/text()[normalize-space()]').extract_first()
+#         company = response.xpath('//*[@class="company"][1]/text()[normalize-space()]').extract_first()
+#         location = response.xpath('//*[@class="location"][1]/text()[normalize-space()]').extract_first()
+#         salary_heading = response.xpath('//*[@class="no-wrap"]/text()[normalize-space()]').extract_first()
+#         job_sum =  " ".join(line for line in response.xpath('//*[@class="summary"]/descendant-or-self::*/text()[normalize-space()]').extract())
+#         days_posted = response.xpath('//div[@class="result-link-bar"]/span[@class="date"]/text()[normalize-space()]').extract_first()
+
+#         yield{'Title': title, 'Company': company, 'Location':location, 'Salary_heading':salary_heading,'Job_sum_complete':job_sum,'Days_posted':days_posted}
