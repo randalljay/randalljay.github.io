@@ -7,7 +7,7 @@ title: Client Project
 
 
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+![_config.yml]({{ site.baseurl }}/images/zero.png)
 
 
 # 1.0 Title : Predict factors indicating post survey completion for Uprise customers.
@@ -44,17 +44,7 @@ Out[210]:
 
 Out[211]:
 
-### Age_Group Gender Industry
-
-### 0 NaN NaN NaN
-
-### 1 NaN NaN NaN
-
-### 2 39 1.0 1
-
-### 3 22 1.0 9
-
-### 4 27 1.0 3
+![_config.yml]({{ site.baseurl }}/images/one.png)
 
 
 ## 2.1 Data Cleaning, Processing and Feature Engineering:
@@ -103,17 +93,7 @@ df_clean.shape
 ```
 Out[213]:
 
-### age Gender industry
-
-### 0 39.0 female nance accounting
-
-### 1 22.0 female other
-
-### 2 27.0 female engineering technology
-
-### 3 23.0 female nance accounting
-
-### 4 42.0 male other
+![_config.yml]({{ site.baseurl }}/images/two.png)
 
 Out[214]:
 
@@ -125,11 +105,7 @@ df_clean[['pre_psycap_total','post_psycap_total']].describe().T
 
 Out[215]:
 
-### count mean std min 25% 50% 75% m
-
-### pre_psycap_total 447.0 67.080537 16.197707 10.0 60.0 70.0 80.0 10
-
-### post_psycap_total 162.0 76.728395 13.296908 30.0 70.0 77.5 85.0 10
+![_config.yml]({{ site.baseurl }}/images/three.png)
 
 
 # 2.2 Exploratory Data Analysis
@@ -159,25 +135,27 @@ df_eda=pd.read_csv('./datasets/eda_csv.csv')
 ```
 plt.hist(df_eda['age'],label='Age',bins= 20 )
 ```
-```
-None
-```
 
+![_config.yml]({{ site.baseurl }}/images/four.png)
+
+```
 In [218]:
 _## Outlier detection_
 
 ```
+
 sns.boxplot('pre_doc_visits', data=df_eda)
 ```
 ```
 plt.tick_params(axis='both', labelsize= 15 )
-```
 
+![_config.yml]({{ site.baseurl }}/images/four.png)
+```
 In [219]:
 df_eda[['pre_psycap_total','post_psycap_total']].hist()
 
 ```
-None
+![_config.yml]({{ site.baseurl }}/images/five.png)
 ```
 
 ## 2.2.2 Interesting Insights
