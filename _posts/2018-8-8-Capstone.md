@@ -75,8 +75,9 @@ df_clean[['age','Gender','industry']].head()
 
 
 
-
+```
 df_clean[['pre_psycap_total','post_psycap_total']].describe().T
+```
 ![_config.yml]({{ site.baseurl }}/images/three.png)
 
 
@@ -96,20 +97,22 @@ df_clean[['pre_psycap_total','post_psycap_total']].describe().T
 
 
 ## 2.2.1 Univariate Analysis
-
+```
 df_eda=pd.read_csv('./datasets/eda_csv.csv')
 plt.hist(df_eda['age'],label='Age',bins= 20 )
-
+```
 ![_config.yml]({{ site.baseurl }}/images/four.png)
 
-
+```
 Outlier detection
 sns.boxplot('pre_doc_visits', data=df_eda)
 plt.tick_params(axis='both', labelsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/five.png)
 
-
+```
 df_eda[['pre_psycap_total','post_psycap_total']].hist()
+```
 ![_config.yml]({{ site.baseurl }}/images/six.png)
 
 
@@ -117,22 +120,25 @@ df_eda[['pre_psycap_total','post_psycap_total']].hist()
 
 
 
-
+```
 ax = sns.stripplot(x="age",y='OS' ,hue="Gender", data=df_eda,size= 7 plt.title('Age & Operating System',fontsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/seven.png)
 
-
+```
 df_grouped.plot(kind='bar', x='pre_survey_WD',subplots= True ,
 legend= False )
+```
 ![_config.yml]({{ site.baseurl }}/images/eight.png)
 
-
+```
 df_grouped_2.plot(kind='bar', x='post_survey_WD',subplots= True,
 legend= False )
+```
 ![_config.yml]({{ site.baseurl }}/images/nine.png)
 
 
-
+```
 industry-wide pre and post mean wellness total
 df_eda.groupby('industry')['post_well_total','pre_well_total'].mean().plot(kind='barh',figsize = ( 16 , 8 ))
 plt.xlabel('Wellness level average',fontsize= 20 )
@@ -140,21 +146,23 @@ plt.ylabel('Industry',fontsize= 20 )
 plt.title('Industry pre/post wellness level',fontsize= 20 )
 plt.legend(loc='upper right', bbox_to_anchor=(1., 0.7),fontsize= 15 )
 plt.tick_params(axis='both', labelsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/ten.png)
 
 
-
-industry-wise pre and post mean stress total
+```
+industry-wide pre and post mean stress total
 df_eda.groupby('industry')['post_stress4_total','pre_stress4_total'].mean().plot(kind='barh',figsize = ( 16 , 8 ))
 plt.xlabel('Stress level average',fontsize= 20 )
 plt.ylabel('Industry',fontsize= 20 )
 plt.title('Industry pre/post stress level',fontsize= 20 )
 plt.legend(loc='upper right', bbox_to_anchor=(1., 0.62),fontsize= 15 )
 plt.tick_params(axis='both', labelsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/eleven.png)
 
 
-
+```
 plt.figure(figsize=( 15 , 8 ))
 sns.countplot(x="last_opened_email_WD", hue="Gender", data=df_eda, palette="plasma
 plt.tick_params(axis='both', labelsize= 15 )
@@ -162,10 +170,11 @@ plt.ylabel('Count',fontsize= 20 )
 plt.xlabel('Last Opened email day',fontsize= 20 )
 plt.title('Gender last opened email day',fontsize= 20 )
 plt.legend(loc='upper right',fontsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/twelve.png)
 
 
-
+```
 plt.figure(figsize=( 15 , 8 ))
 sns.countplot(x="h_last_opened_email", hue="Gender", data=df_eda, palette="plasma_r")
 plt.tick_params(axis='both', labelsize= 15 )
@@ -173,16 +182,18 @@ plt.legend(loc='upper right',fontsize= 15 )
 plt.ylabel('Count',fontsize= 20 )
 plt.xlabel('Last Opened email Hour',fontsize= 20 )
 plt.title('Gender last opened email hour',fontsize= 20 )
+```
 ![_config.yml]({{ site.baseurl }}/images/thirteen.png)
 
 
-
+```
 df_clean.groupby('Gender')['survey_preprogram','video_retraining','video_pleasant','video_letgo','survey_postprogram'].count().plot(kind='bar',figsize=( 6 , 4 ))
 plt.ylabel('Number of Partipants',fontsize= 15 )
 plt.xlabel('Gender',fontsize= 15 )
 plt.title('Reducing participation',fontsize= 15 )
 plt.legend(loc= 0 ,fontsize= 10 )
 plt.tick_params(axis='both', labelsize= 15 )
+```
 ![_config.yml]({{ site.baseurl }}/images/fourteen.png)
 
 
@@ -198,11 +209,12 @@ plt.tick_params(axis='both', labelsize= 15 )
 ### 3. Correlation Heatmap
 
 
-
+```
 vif.sort_values(by='VIF_Factor',ascending= True).head( 10 )
+```
 ![_config.yml]({{ site.baseurl }}/images/fifteen.png)
 
-
+```
 sns.set(style="white")
 make correlation matrix_
 corr = X.corr()
@@ -215,7 +227,7 @@ cmap = sns.diverging_palette( 220 , 10 , as_cmap= True )
 Call the heatmap with the mask and correct aspect ratio
 sns.heatmap(corr, mask=mask, cmap=cmap, vmax= 1 , center= 0 ,
 square= True , linewidths=. 5 , cbar_kws={"shrink":. 5 })
-
+```
 ![_config.yml]({{ site.baseurl }}/images/sixteen.png)
 
 
@@ -223,22 +235,24 @@ square= True , linewidths=. 5 , cbar_kws={"shrink":. 5 })
 
 ### 2.3.2 Sentiment Analysis (Customer Reviews)
 
-
+```
 Top five reviews based on sentiment of the reviews
 df_sent.head()
+```
 ![_config.yml]({{ site.baseurl }}/images/seventeen.png)
 
 
 
 
 
-
+```
 print(wordcloud)
 fig = plt.figure( 1 )
 plt.imshow(wordcloud)
 plt.axis('off')
 plt.show()
 fig.savefig("word1.png", dpi= 900 )
+```
 ![_config.yml]({{ site.baseurl }}/images/eighteen.png)
 
 ### 2.3.3 Application of Machine Learning Algorithims
@@ -254,16 +268,15 @@ fig.savefig("word1.png", dpi= 900 )
 
 
 Note the problem of imbalanced target variable
-
+```
 X_train.complete_post_survey.value_counts()
 1 209
 0 103
-
+```
 Separate majority and minority classes
 
-
+```
 df_majority = X_train[X_train.complete_post_survey== 0 ]
-
 df_minority = X_train[X_train.complete_post_survey== 1 ]
 Upsample minority class
 df_minority_upsampled = resample(df_minority,
@@ -276,13 +289,14 @@ Display new class counts
 df_upsampled.complete_post_survey.value_counts()
 1 209
 0 209
+```
 
 
 
-
-
+```
 sort values by randomforest
 f_coe.sort_values(by='Rf_coe',ascending= False ).head( 5 )
+```
 ![_config.yml]({{ site.baseurl }}/images/nineteen.png)
 
 
@@ -297,13 +311,14 @@ f_coe.sort_values(by='Rf_coe',ascending= False ).head( 5 )
 
 ### my data set. AUC-ROC is not effected by class imbalance however accuracy score is affected.
 
-
+```
 class_summary
+```
 ![_config.yml]({{ site.baseurl }}/images/twentyone.png)
 
 
 
-
+```
 AUC_ROC
-
+```
 ![_config.yml]({{ site.baseurl }}/images/twenty.png)
