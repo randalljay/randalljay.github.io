@@ -110,7 +110,7 @@ Out[215]:
 
 # 2.2 Exploratory Data Analysis
 
-## 1. Explore the entire data set to nd trends.
+## 1. Explore the entire data set to find trends.
 
 ## 2. Univariate Analysis
 
@@ -149,13 +149,13 @@ sns.boxplot('pre_doc_visits', data=df_eda)
 ```
 plt.tick_params(axis='both', labelsize= 15 )
 
-![_config.yml]({{ site.baseurl }}/images/four.png)
+![_config.yml]({{ site.baseurl }}/images/five.png)
 ```
 In [219]:
 df_eda[['pre_psycap_total','post_psycap_total']].hist()
 
 ```
-![_config.yml]({{ site.baseurl }}/images/five.png)
+![_config.yml]({{ site.baseurl }}/images/six.png)
 ```
 
 ## 2.2.2 Interesting Insights
@@ -172,6 +172,7 @@ plt.title('Age & Operating System',fontsize= 15 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/seven.png)
 ```
 
 In [223]:
@@ -182,6 +183,7 @@ legend= False )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/eight.png)
 ```
 
 In [224]:
@@ -192,10 +194,11 @@ legend= False )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/nine.png)
 ```
 
 In [225]:
-_### industry-wise pre and post mean wellness total_
+_### industry-wide pre and post mean wellness total_
 
 ```
 df_eda.groupby('industry')['post_well_total','pre_well_total'].mean().plot(kind='b
@@ -220,6 +223,7 @@ plt.tick_params(axis='both', labelsize= 15 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/ten.png)
 ```
 
 In [226]:
@@ -248,6 +252,7 @@ plt.tick_params(axis='both', labelsize= 15 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/eleven.png)
 ```
 
 In [227]:
@@ -257,7 +262,7 @@ plt.figure(figsize=( 15 , 8 ))
 sns.countplot(x="last_opened_email_WD", hue="Gender", data=df_eda, palette="plasma
 ```
 ```
-_r")
+
 ```
 ```
 plt.tick_params(axis='both', labelsize= 15 )
@@ -276,6 +281,7 @@ plt.legend(loc='upper right',fontsize= 15 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/twelve.png)
 ```
 
 In [228]:
@@ -304,6 +310,7 @@ plt.title('Gender last opened email hour',fontsize= 20 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/thirteen.png)
 ```
 
 In [229]:
@@ -332,6 +339,8 @@ plt.legend(loc= 0 ,fontsize= 10 )
 ```
 ```
 plt.tick_params(axis='both', labelsize= 15 )
+
+![_config.yml]({{ site.baseurl }}/images/fourteen.png)
 ```
 
 # 2.3 Modelling and Machine Learning
@@ -350,29 +359,11 @@ In [233]:
 vif.sort_values(by='VIF_Factor',ascending= **True** ).head( 10 )
 
 Out[233]:
+```
 
-### VIF_Factor features
+![_config.yml]({{ site.baseurl }}/images/fifteen.png)
 
-### 34 1.191108 pre_diff_not_paid
-
-### 19 1.231367 bonus_resources_retraining
-
-### 23 1.252392 web_sess_total
-
-### 29 1.272511 pre_diff_unclear_role
-
-### 0 1.298058 age
-
-### 35 1.314345 pre_diff_lacking_support
-
-### 18 1.318270 video_retraining
-
-### 31 1.372747 pre_diff_job_uncertainty
-
-### 32 1.387862 pre_diff_lack_resources
-
-### 30 1.389767 pre_diff_not_recognised
-
+```
 
 In [235]:
 sns.set(style="white")
@@ -413,7 +404,8 @@ square= True , linewidths=. 5 , cbar_kws={"shrink":. 5 })
 Out[235]:
 
 ```
-<matplotlib.axes._subplots.AxesSubplot at 0x1a28f7efd0>
+![_config.yml]({{ site.baseurl }}/images/sixteen.png)
+
 ```
 
 
@@ -425,58 +417,11 @@ _## Top five reviews based on sentiment of the reviews_
 
 ```
 df_sent.head()
+![_config.yml]({{ site.baseurl }}/images/seventeen.png)
 ```
 Out[238]:
 
-### pre_stress4_total post_stress4_total up_one_sentence compound
 
-### 81 6.0 6.0
-
-### Amazing opportunity
-
-### to do something
-
-### positive f...
-
-### 0.9360
-
-### 890 6.0 31.0
-
-### This is a great program
-
-### to start discussing an...
-
-### 0.9325
-
-### 418 44.0 19.0
-
-### The Uprise program
-
-### has been great. Liza
-
-### was re...
-
-### 0.8923
-
-### 795 50.0 31.0
-
-### Supportive, offers
-
-### great tools, and helps
-
-### to s...
-
-### 0.8910
-
-### 448 50.0 50.0
-
-### A good program to
-
-### prompt action for
-
-### better wel...
-
-### 0.8832
 
 
 In [88]:
@@ -499,6 +444,7 @@ fig.savefig("word1.png", dpi= 900 )
 ```
 ```
 None
+![_config.yml]({{ site.baseurl }}/images/eighteen.png)
 ```
 ```
 <wordcloud.wordcloud.WordCloud object at 0x1a303ffc88>
@@ -582,20 +528,11 @@ _#sort values by randomforest_
 
 ```
 f_coe.sort_values(by='Rf_coe',ascending= False ).head( 5 )
+![_config.yml]({{ site.baseurl }}/images/nineteen.png)
 ```
-Out[272]:
 
-### Feature Logit_coe Tree_coe Rf_coe
 
-### 21 video_letgo 1.88 0.66 0.19
 
-### 22 video_breathing 0.82 0.06 0.14
-
-### 23 web_sess_total 0.00 0.08 0.09
-
-### 20 video_pleasant 0.48 0.01 0.08
-
-### 24 total_appointments 1.00 0.05 0.06
 
 
 In [274]:
@@ -608,132 +545,11 @@ In [274]:
 
 ```
 class_summary
-```
-Out[274]:
+![_config.yml]({{ site.baseurl }}/images/twentyone.png)
 
-### Best Model Score AUCROC Comparison
-
-### Model
-
-### Logistic 0.82 0.71
-
-### KNN 0.72 0.71
-
-### SVM 0.83 0.81
-
-### DecisionTree 0.71 0.86
-
-### RandomForest 0.86 0.70
-
-### Baseline 0.61 0.61
 
 
 In [275]:
 plt.figure(figsize=( 16 , 8 )).clf()
 
-```
-#plot decision tree
-```
-```
-pred = t_yhat_pp[:, 1 ]
-```
-```
-label = y_test.values
-```
-```
-fpr, tpr, thresh = metrics.roc_curve(label, pred)
-```
-```
-auc = round(metrics.roc_auc_score(label, pred), 2 )
-```
-```
-plt.plot(fpr,tpr,label="Decision Tree, auc="+str(auc))
-```
-```
-#plot random forest
-```
-```
-pred = r_yhat_pp[:, 1 ]
-```
-```
-label = y_test.values
-```
-```
-fpr, tpr, thresh = metrics.roc_curve(label, pred)
-```
-```
-auc = round(metrics.roc_auc_score(label, pred), 2 )
-```
-```
-plt.plot(fpr,tpr,label="Random Forest, auc="+str(auc))
-```
-```
-#plot SVM
-```
-```
-pred = s_yhat_pp[:, 1 ]
-```
-```
-label = y_test.values
-```
-```
-fpr, tpr, thresh = metrics.roc_curve(label, pred)
-```
-```
-auc = round(metrics.roc_auc_score(label, pred), 2 )
-```
-```
-plt.plot(fpr,tpr,label="SVM, auc="+str(auc))
-```
-```
-#plot knn
-```
-```
-pred = k_yhat_pp[:, 1 ]
-```
-```
-label = y_test.values
-```
-```
-fpr, tpr, thresh = metrics.roc_curve(label, pred)
-```
-```
-auc = round(metrics.roc_auc_score(label, pred), 2 )
-```
-```
-plt.plot(fpr,tpr,label="KNN, auc="+str(auc))
-```
-```
-#plot logistic
-```
-```
-pred = l_yhat_pp[:, 1 ]
-```
-```
-label = y_test.values
-```
-```
-fpr, tpr, thresh = metrics.roc_curve(label, pred)
-```
-```
-auc = round(metrics.roc_auc_score(label, pred), 2 )
-```
-```
-plt.plot(fpr,tpr,label="Logistic, auc="+str(auc))
-```
-
-_#plot random predictor_
-
-plt.plot([ 0 , 1 ],[ 0 , 1 ],'r--')
-
-plt.tick_params(axis='both', labelsize= 20 )
-
-plt.ylabel('True Positive Rate',fontsize= 20 )
-
-plt.xlabel('False Positive Rate',fontsize= 20 )
-
-plt.title('Area under the ROC Curve.',fontsize= 20 )
-
-plt.legend(loc= 0 ,fontsize= 15 )
-
-**None**
+![_config.yml]({{ site.baseurl }}/images/twenty.png)
