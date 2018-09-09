@@ -14,4 +14,4 @@ I've always been interested in data analytics and business strategy. I wanted to
 
 ### Contact me
 
-[email@domain.com](mailto:randalljoseph1@gmail.com)
+[randalljoseph1@gmail.com](mailto:randalljoseph1@gmail.com)
