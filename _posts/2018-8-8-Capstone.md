@@ -23,11 +23,12 @@ title: Client Project
 # 2.0 Data Import , Cleaning and Exploratory Data Analysis
 
 
-
+```
 df_raw=pd.read_csv('./datasets/rawdf.csv')
 df_raw.shape
 (1176, 230)
 df_raw[['Age_Group','Gender','Industry']].head()
+```
 ![_config.yml]({{ site.baseurl }}/images/one.png)
 
 
@@ -61,11 +62,12 @@ df_raw[['Age_Group','Gender','Industry']].head()
 
 
 
-
+```
 df_clean=pd.read_csv('./datasets/cleandf_new.csv')
 df_clean.shape
 (972, 167)
 df_clean[['age','Gender','industry']].head()
+```
 ![_config.yml]({{ site.baseurl }}/images/two.png)
 
 
